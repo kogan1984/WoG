@@ -21,13 +21,22 @@ def load_game():
        diff = int(diff)
        if choice == 1:
            from MemoryGame import play
-           play(diff)
+           result = play(diff)
+           if result ==True:
+               from Score import add_score
+               add_score(diff)
        if choice == 2:
            from GuessGame import play
-           play(diff)
+           result = play(diff)
+           if result == True:
+               from Score import add_score
+               add_score(diff)
        if choice == 3:
            from CurrencyRouletteGame import play
-           play(diff)
+           result = play(diff)
+           if result == True:
+               from Score import add_score
+               add_score(diff)
 
 
 

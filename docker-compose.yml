@@ -2,7 +2,13 @@
 version: '3'
 
 services:
-  web:
-    build: '.'
-    ports:
-      - '8777:8777'
+#  web:
+#    build: '.'
+#    ports:
+#    - '5005:5005'
+
+ flask:
+        build: .
+        container_name: flask
+        ports:
+            - "8777:8777"

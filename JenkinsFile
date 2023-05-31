@@ -1,0 +1,47 @@
+pipeline {
+   agent any
+   stages {
+    stage('Checkout')
+{
+   steps
+   {
+      bat "git clone https://github.com/kogan1984/WoG.git"
+   }
+}
+  stage('Build')
+{
+   steps
+   {
+      bat "docker-compose -f wog/docker-compose.yml up -d"
+   }
+}
+  stage('Test')
+{
+   steps
+   {
+      bat  "py wog/tests/e2e.py"
+   }
+}
+stage('Docker Down')
+{
+   steps
+   {
+       bat "docker-compose -f wog/docker-compose.yml down"
+   }
+}
+stage('dockerHub login')
+{
+   steps
+   {
+       bat "docker login  -u avikogan -p Chen2017!"
+   }
+}
+stage('dockerHub push')
+{
+   steps
+   {
+       bat "docker push avikogan/wog"
+   }
+}
+       }
+    }

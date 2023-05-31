@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome('./chromedriver.exe')
 
 
-driver.get('http://127.0.0.1:5000')
+driver.get('http://127.0.0.1:8777')
 
 
 score = driver.find_element(By.ID,"score").text
